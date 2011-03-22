@@ -19,18 +19,14 @@ Usage
         return 0;
     }
 
-(See the original [string_score][0] javascript program for details on the algorithm.)
+(See the original [string_score][0] javascript code for details on the algorithm.)
 
 TODO
 ----
 
-- Speed improvements (currently just a direct translation from JS)
+- Speed improvements (Currently it's just a direct translation from JS, but with no further optimization.)
 - Tests
 - Benchmarks
-
-Author
-------
-[Christopher Gateley](mailto:christopher.gateley+github@gmail.com)
 
 License
 -------
