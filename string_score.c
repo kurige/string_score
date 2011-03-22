@@ -1,4 +1,16 @@
 
+/*!
+ * string_score.c: String Scoring Algorithm 0.1
+ * https://github.com/kurige/string_score
+ *
+ * Based on Javascript code by Joshaven Potter
+ * https://github.com/joshaven/string_score
+ *
+ * MIT license: http://www.opensource.org/licenses/mit-license.php
+ *
+ * Date: Tue Mar 21 2011
+*/
+
 #include <ctype.h>
 #include <string.h>
 
