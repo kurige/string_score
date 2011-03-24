@@ -14,9 +14,9 @@
 #include <ctype.h>
 #include <string.h>
 
-#define STARTOFSTRING_BONUS 0.15
 #define ACRONYM_BONUS       0.8
 #define CONSECUTIVE_BONUS   0.6
+#define START_OF_STR_BONUS  0.1
 #define SAMECASE_BONUS      0.1
 #define MATCH_BONUS         0.1
 
@@ -47,7 +47,7 @@ double string_score_impl( const char* a, const char* b, double fuzziness )
     const char* aptr = a;
     
     double score = 0.0;
-    double final_score = 0.0;
+    int start_of_string_bonus = 0;
     
     int c;
     size_t c_index;
@@ -61,6 +61,7 @@ double string_score_impl( const char* a, const char* b, double fuzziness )
     {
         /* Find the first case-insensitive match of a character. */
         c = b[i];
+        //printf( "- %c (%s)\n", c, aptr );
         c_cases[0] = (char)toupper(c);
         c_cases[1] = (char)tolower(c);
         c_index = strcspn( aptr, c_cases );
@@ -80,24 +81,31 @@ double string_score_impl( const char* a, const char* b, double fuzziness )
         
         /* Same-case bonus. */
         if( aptr[c_index] == c )
+        {
+            //printf( "* Same case bonus.\n" );
             score += SAMECASE_BONUS;
+        }
         
         /* Consecutive letter & start-of-string bonus. */
         if( c_index == 0 )
         {
             /* Increase the score when matching first character of the
                remainder of the string. */
+            //printf( "* Consecutive char bonus.\n" );
             score += CONSECUTIVE_BONUS;
             if( i == 0 )
                 /* If match is the first char of the string & the first char
                    of abbreviation, add a start-of-string match bonus. */
-                final_score += STARTOFSTRING_BONUS;
+                start_of_string_bonus = 1;
         }
         else if( aptr[c_index - 1] == ' ' )
+        {
             /* Acronym Bonus
              * Weighing Logic: Typing the first character of an acronym is as
              * if you preceded it with two perfect character matches. */
+            //printf( "* Acronym bonus.\n" );
             score += ACRONYM_BONUS;
+        }
         
         /* Left trim the already matched part of the string.
            (Forces sequential matching.) */
@@ -107,9 +115,14 @@ double string_score_impl( const char* a, const char* b, double fuzziness )
     score /= (double)b_len;
     
     /* Reduce penalty for longer strings. */
-    final_score += ( ( score * ( (double)b_len / (double)a_len) ) + score ) / 2.0;
-    final_score /= fuzzies;
+    score = ((score * (b_len / (double)a_len)) + score) / 2;
+    score /= fuzzies;
     
-    return ( final_score > 1.0 ) ? 1.0 : final_score;
+    if( start_of_string_bonus && (score + START_OF_STR_BONUS < 1) )
+    {
+        //printf( "* Start of string bonus.\n" );
+        score += START_OF_STR_BONUS;
+    }
+    
+    return score;
 }
-
