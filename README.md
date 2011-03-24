@@ -1,7 +1,7 @@
 string_score
 =============
 
-Ported from version 0.1.10 of Joshaven Potter's [string_score][0] JS code to C.
+Ported from version 0.1.10 of Joshaven Potter's [string_score][0].
 
 `string_score` is a string ranking algorithm that produced a number between 0 and 1 representing the similarity between two strings.
 
