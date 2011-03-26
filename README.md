@@ -35,7 +35,8 @@ Benchmark results
 -----------------
 
 Core 2 Duo T6600 Laptop
-Windows 7 x64
+
+Windows 7 x64 (cygwin)
 
     $ ./benchmark
     Loaded 11925 words into dictionary.
@@ -45,19 +46,22 @@ Windows 7 x64
     Scoring word "pre"      ... 2.043 ms
     Scoring word "world"    ... 1.818 ms
 
-Todo
-----
+2.8GHz Intel Core i5
 
-- Speed improvements (Currently it's just a direct translation from JS, but with no further optimization.)
-- Tests
+MaxOSX 10.6.7
 
-License
--------
-Licensed under the [MIT license](http://www.opensource.org/licenses/mit-license.php).
+    $ ./benchmark
+    Loaded 11925 words into dictionary.
+    
+    Scoring word "cat"      ... 1.042 ms
+    Scoring word "cious"    ... 1.101 ms
+    Scoring word "pre"      ... 1.003 ms
+    Scoring word "world"    ... 0.812 ms
 
-Author
-------
+-------------
 
-Christopher Gateley | [christopher.gateley@gmail.com](mailto:christopher.gateley@gmail.com)
+License : [MIT license](http://www.opensource.org/licenses/mit-license.php)
+
+Author : Christopher Gateley | [christopher.gateley@gmail.com](mailto:christopher.gateley@gmail.com)
 
 [0]: http://github.com/joshaven/string_score
