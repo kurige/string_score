@@ -23,15 +23,41 @@ Usage
 
 (See the original [string_score][0] javascript code for details on the algorithm.)
 
-TODO
+Running the benchmark
+---------------------
+
+To run the benchmark `cd` into the `string_score/benchmark` folder and run the following commands:
+
+    $ gcc -Wall -O3 -I.. ../string_score.c benchmark.c timer.c dictionary.c -o benchmark
+    $ ./benchmark
+
+Benchmark results
+-----------------
+
+Core 2 Duo T6600 Laptop
+Windows 7 x64
+
+    $ ./benchmark
+    Loaded 11925 words into dictionary.
+
+    Scoring word "cat"      ... 2.175 ms
+    Scoring word "cious"    ... 2.112 ms
+    Scoring word "pre"      ... 2.043 ms
+    Scoring word "world"    ... 1.818 ms
+
+Todo
 ----
 
 - Speed improvements (Currently it's just a direct translation from JS, but with no further optimization.)
 - Tests
-- Benchmarks
 
 License
 -------
 Licensed under the [MIT license](http://www.opensource.org/licenses/mit-license.php).
+
+Author
+------
+
+Christopher Gateley | [christopher.gateley@gmail.com](mailto:christopher.gateley@gmail.com)
 
 [0]: http://github.com/joshaven/string_score
