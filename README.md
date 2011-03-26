@@ -28,7 +28,7 @@ Running the benchmark
 
 To run the benchmark `cd` into the `string_score/benchmark` folder and run the following commands:
 
-    $ gcc -Wall -O3 -I.. ../string_score.c benchmark.c timer.c dictionary.c -o benchmark
+    $ gcc -Wall -O3 -I.. ../string_score.c *.c -o benchmark
     $ ./benchmark
 
 Benchmark results
