@@ -34,8 +34,7 @@ To run the benchmark `cd` into the `string_score/benchmark` folder and run the f
 Benchmark results
 -----------------
 
-Core 2 Duo T6600 Laptop
-
+Core 2 Duo T6600 Laptop  
 Windows 7 x64 (cygwin)
 
     $ ./benchmark
@@ -46,8 +45,7 @@ Windows 7 x64 (cygwin)
     Scoring word "pre"      ... 2.043 ms
     Scoring word "world"    ... 1.818 ms
 
-2.8GHz Intel Core i5
-
+2.8GHz Intel Core i5  
 MaxOSX 10.6.7
 
     $ ./benchmark
@@ -58,7 +56,8 @@ MaxOSX 10.6.7
     Scoring word "pre"      ... 1.003 ms
     Scoring word "world"    ... 0.812 ms
 
--------------
+Misc.
+-----
 
 License : [MIT license](http://www.opensource.org/licenses/mit-license.php)
 
